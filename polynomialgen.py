@@ -5,29 +5,7 @@ def make_polynomials(limit, latexify):
     '''
     # Keep making polynomials until limit is reached
     for j in range(0, int(limit)):
-        # Languages of variables, degrees, and operations
-        varbs = ["x","y","z"]
-        degs = ["","^2","^3"]
-        ops = ["+","-"]
-        # Option for latex-compatible text
-        if (latexify):
-            degs = ["","^{2}","^{3}"]
-        # Determine number of terms in polynomial
-        strlength = random.randint(3,6)
-        finstr = ""
-        for i in range(0,strlength):
-            # Randomly choose elements of current term
-            coeff = random.randint(2,10)
-            chovar = random.randint(0,2)
-            chosops = random.randint(0,1)
-            chodegs = random.randint(0,2)
-            # Append term to final string
-            finstr = finstr + " " + str(coeff) + varbs[chovar] + degs[chodegs] + " " + ops[chosops]
-        # Strip extra characters
-        finstr = finstr[1:-2]
-        # Option for latex compatibility
-        if (latexify):
-            finstr = "$" + finstr + "$"
+        finstr = make_polynomial(latexify)
         print(finstr)
 
 def make_polynomial(latexify):
